@@ -21,10 +21,11 @@ public class Typper : MonoBehaviour
         StartCoroutine(Type(sentence));
     }
 
-    /*public void StartUntype()
+    [NaughtyAttributes.Button]
+    public void StartUntype()
     {
         StartCoroutine(Untype(sentence));
-    }*/
+    }
 
     IEnumerator Type(string s)
     {
@@ -36,7 +37,7 @@ public class Typper : MonoBehaviour
         }
     }
 
-    /*IEnumerator Untype(string s)
+    IEnumerator Untype(string s)
     {
         string currentText = s;
         while (currentText.Length > 0)
@@ -45,5 +46,5 @@ public class Typper : MonoBehaviour
             textMesh.text = currentText;
             yield return new WaitForSeconds(timeBetweenLetters);
         }    
-    }*/
+    }
 }

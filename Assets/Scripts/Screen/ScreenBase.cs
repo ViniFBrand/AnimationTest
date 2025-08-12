@@ -52,6 +52,7 @@ namespace Screens
         private void HideObjects()
         {
             listOfObjects.ForEach(i => i.gameObject.SetActive(false));
+            Invoke(nameof(StartUntype), 0);
         }
 
         private void ShowObjects()
@@ -76,13 +77,13 @@ namespace Screens
             }
         }
 
-        /*private void StartUntype()
+        private void StartUntype()
         {
             for (int i = 0; i < listOfSentences.Count; i++)
             {
                 listOfSentences[i].StartUntype();
             }
-        }*/
+        }
 
         private void ForceShowObjects()
         {
