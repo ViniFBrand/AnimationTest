@@ -6,7 +6,8 @@ using TMPro;
 public class Typper : MonoBehaviour
 {
     public TextMeshProUGUI textMesh;
-    public float timeBetweenLetters = .1f;
+    public float timeBetweenLetters = .05f;
+    public float timeToUntype = 0f;
 
     public string sentence;
 
@@ -44,7 +45,7 @@ public class Typper : MonoBehaviour
         {
             currentText = currentText.Substring(0, currentText.Length - 1);
             textMesh.text = currentText;
-            yield return new WaitForSeconds(timeBetweenLetters);
+            yield return new WaitForSeconds(timeToUntype);
         }    
     }
 }

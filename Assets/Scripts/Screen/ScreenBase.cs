@@ -21,7 +21,9 @@ namespace Screens
         public List<Transform> listOfObjects;
         public List<Typper> listOfSentences;
 
-        public bool startHided = false;
+        public Image uiBackground;
+        public bool startHidden = false;
+        public bool firstType = false;
 
         [Header("Animation")]
         public float animationDuration = .3f;
@@ -29,21 +31,22 @@ namespace Screens
 
         private void Start()
         {
-            if (startHided)
+            if (startHidden)
             {
                 HideObjects();
             }
         }
 
+        
         [Button]
-        protected virtual void Show()
+        public virtual void Show()
         {
             ShowObjects();
             Debug.Log("Show");
         }
 
         [Button]
-        protected virtual void Hide()
+        public virtual void Hide()
         {
             Debug.Log("Hide");
             HideObjects();
@@ -53,6 +56,7 @@ namespace Screens
         {
             listOfObjects.ForEach(i => i.gameObject.SetActive(false));
             Invoke(nameof(StartUntype), 0);
+            //uiBackground.enabled = false;
         }
 
         private void ShowObjects()
@@ -67,27 +71,33 @@ namespace Screens
             }
 
             Invoke(nameof(StartType), delayBetweenObjects * listOfObjects.Count);
+            //uiBackground.enabled = true;
         }
 
         private void StartType()
         {
             for (int i = 0; i < listOfSentences.Count; i++)
             {
+                firstType = true;
                 listOfSentences[i].StartType();
             }
         }
 
         private void StartUntype()
         {
-            for (int i = 0; i < listOfSentences.Count; i++)
+            if (firstType)
             {
-                listOfSentences[i].StartUntype();
+                for (int i = 0; i < listOfSentences.Count; i++)
+                {
+                    listOfSentences[i].StartUntype();
+                }
             }
         }
 
         private void ForceShowObjects()
         {
             listOfObjects.ForEach(i => i.gameObject.SetActive(true));
+            //uiBackground.enabled = true;
         }
     }
 }
