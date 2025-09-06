@@ -18,8 +18,10 @@ namespace Screens
 
         private void Start()
         {
+
             HideAll();
             ShowByType(startScreen);
+            //screenBases.GetRandom().Show();
         }
 
         public void ShowByType(ScreenType type)
