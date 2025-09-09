@@ -12,7 +12,7 @@ public static class VinUtil
         return list[Random.Range(0, list.Count)];
     }
 
-    //Randomize GameObject fro Array
+    //Randomize GameObject from Array
     public static T GetRandom<T>(this T[] array)
     {
         if(array.Length == 0)
@@ -21,6 +21,7 @@ public static class VinUtil
         return array[Random.Range(0, array.Length)];
     }
 
+    //Randomize GameObject from List but return an object that is different from the one selected
     public static T GetRandomButNotSame<T>(this List<T> list, T unique)
     {
         if (list.Count == 1)

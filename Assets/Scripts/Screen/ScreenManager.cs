@@ -20,8 +20,8 @@ namespace Screens
         {
 
             HideAll();
-            ShowByType(startScreen);
-            //screenBases.GetRandom().Show();
+            //ShowByType(startScreen);
+            screenBases.GetRandom().Show();
         }
 
         public void ShowByType(ScreenType type)
