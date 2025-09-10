@@ -21,7 +21,9 @@ namespace Screens
 
             HideAll();
             //ShowByType(startScreen);
-            screenBases.GetRandom().Show();
+            _currentScreen = screenBases.GetRandom();
+            _currentScreen.Show();
+           
         }
 
         public void ShowByType(ScreenType type)
