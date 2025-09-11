@@ -23,7 +23,7 @@ public static class VinUtil
             //var particle = Object.Instantiate(particleSystemPrefab, positionParticle, Quaternion.identity);
             var particle = GameObject.Instantiate(particleSystemPrefab);
             particle.Play();
-            GameObject.Destroy(particle, 2f);
+            GameObject.Destroy(particle.gameObject, 2f);
         }
         else
         {
